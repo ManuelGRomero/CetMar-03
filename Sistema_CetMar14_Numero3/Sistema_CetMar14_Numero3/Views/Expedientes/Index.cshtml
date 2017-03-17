@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Sistema_CetMar14_Numero3.Models.Expediente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Expedientes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.alumnos.alumnoNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.especialistas.especialistaNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noExpediente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.alumnos.alumnoNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.especialistas.especialistaNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noExpediente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.expedienteID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.expedienteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.expedienteID })
+        </td>
+    </tr>
+}
+
+</table>

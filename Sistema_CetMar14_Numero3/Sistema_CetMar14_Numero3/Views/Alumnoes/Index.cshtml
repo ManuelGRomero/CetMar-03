@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Sistema_CetMar14_Numero3.Models.Alumno>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Alumnos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.noMatricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alumnoNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alumnoApellidoPaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alumnoApellidoMaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.domicilio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grupo)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.noMatricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alumnoNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alumnoApellidoPaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alumnoApellidoMaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaNacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.domicilio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grupo)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.alumnoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.alumnoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.alumnoID }) |
+            @Html.ActionLink("Expedientes", "CrearExpediente", "Expedientes", new { id=item.alumnoID },null)
+        </td>
+    </tr>
+}
+
+</table>
